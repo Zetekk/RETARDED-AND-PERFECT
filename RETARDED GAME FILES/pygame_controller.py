@@ -13,6 +13,19 @@ pygame.joystick.init()
 joysticks = [pygame.joystick.Joystick(i) for i in range(pygame.joystick.get_count())]
 for joystick in joysticks:
     print(joystick.get_name())
+#i think we can do the player there???
+class Player(pygame.sprite.Sprite):
+    def __init__(self, file_image):
+        super().__init__()
+        self.image = file_image
+        self.movement_x = 0
+        self.movement_y = 0
+        #we will need to implement the speed there like in the lessons from platform game,
+        # but using the gamepad formula
+        self._count = 0
+        self.rect = self.image.get_rect()
+    #we are going to need bullets maybe? then i think we could spawn them while
+    # reading the rotation from the gamepad somehow??? or we can not shoot
 
 my_square = pygame.Rect(50, 50, 50, 50)
 my_square_color = 0
