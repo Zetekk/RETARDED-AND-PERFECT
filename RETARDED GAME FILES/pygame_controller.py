@@ -1,11 +1,12 @@
 import sys
 
 import pygame
-
+import game_module as gm
 from pygame.locals import *
 pygame.init()
 pygame.display.set_caption('game base')
-screen = pygame.display.set_mode((500, 500), 0, 32)
+
+screen = pygame.display.set_mode(gm.SIZESCREEN)
 clock = pygame.time.Clock()
 
 pygame.joystick.init()
@@ -19,7 +20,7 @@ colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
 motion = [0, 0]
 
 while True:
-
+    #start of hell 1
     screen.fill((0, 0, 0))
 
     pygame.draw.rect(screen, colors[my_square_color], my_square)
@@ -29,7 +30,7 @@ while True:
         motion[1] = 0
     my_square.x += motion[0] * 10
     my_square.y += motion[1] * 10
-
+    #end of hell 1
     for event in pygame.event.get():
         if event.type == JOYBUTTONDOWN:
             print(event)
